@@ -1,0 +1,12 @@
+C:\Users\Acer\source\repos\WebPortal.Dll\bin\Debug\net8.0\WebPortal.Dll.deps.json
+C:\Users\Acer\source\repos\WebPortal.Dll\bin\Debug\net8.0\WebPortal.Dll.dll
+C:\Users\Acer\source\repos\WebPortal.Dll\bin\Debug\net8.0\WebPortal.Dll.pdb
+C:\Users\Acer\source\repos\WebPortal.Dll\obj\Debug\net8.0\WebPortal.Dll.csproj.AssemblyReference.cache
+C:\Users\Acer\source\repos\WebPortal.Dll\obj\Debug\net8.0\WebPortal.Dll.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Acer\source\repos\WebPortal.Dll\obj\Debug\net8.0\WebPortal.Dll.AssemblyInfoInputs.cache
+C:\Users\Acer\source\repos\WebPortal.Dll\obj\Debug\net8.0\WebPortal.Dll.AssemblyInfo.cs
+C:\Users\Acer\source\repos\WebPortal.Dll\obj\Debug\net8.0\WebPortal.Dll.csproj.CoreCompileInputs.cache
+C:\Users\Acer\source\repos\WebPortal.Dll\obj\Debug\net8.0\WebPortal.Dll.dll
+C:\Users\Acer\source\repos\WebPortal.Dll\obj\Debug\net8.0\refint\WebPortal.Dll.dll
+C:\Users\Acer\source\repos\WebPortal.Dll\obj\Debug\net8.0\WebPortal.Dll.pdb
+C:\Users\Acer\source\repos\WebPortal.Dll\obj\Debug\net8.0\ref\WebPortal.Dll.dll

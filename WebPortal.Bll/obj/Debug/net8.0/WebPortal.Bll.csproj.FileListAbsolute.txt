@@ -1,0 +1,15 @@
+C:\Users\Acer\source\repos\WebPortal.Bll\bin\Debug\net8.0\WebPortal.Bll.deps.json
+C:\Users\Acer\source\repos\WebPortal.Bll\bin\Debug\net8.0\WebPortal.Bll.dll
+C:\Users\Acer\source\repos\WebPortal.Bll\bin\Debug\net8.0\WebPortal.Bll.pdb
+C:\Users\Acer\source\repos\WebPortal.Bll\bin\Debug\net8.0\WebPortal.Dll.dll
+C:\Users\Acer\source\repos\WebPortal.Bll\bin\Debug\net8.0\WebPortal.Dll.pdb
+C:\Users\Acer\source\repos\WebPortal.Bll\obj\Debug\net8.0\WebPortal.Bll.csproj.AssemblyReference.cache
+C:\Users\Acer\source\repos\WebPortal.Bll\obj\Debug\net8.0\WebPortal.Bll.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Acer\source\repos\WebPortal.Bll\obj\Debug\net8.0\WebPortal.Bll.AssemblyInfoInputs.cache
+C:\Users\Acer\source\repos\WebPortal.Bll\obj\Debug\net8.0\WebPortal.Bll.AssemblyInfo.cs
+C:\Users\Acer\source\repos\WebPortal.Bll\obj\Debug\net8.0\WebPortal.Bll.csproj.CoreCompileInputs.cache
+C:\Users\Acer\source\repos\WebPortal.Bll\obj\Debug\net8.0\WebPorta.4904E7F6.Up2Date
+C:\Users\Acer\source\repos\WebPortal.Bll\obj\Debug\net8.0\WebPortal.Bll.dll
+C:\Users\Acer\source\repos\WebPortal.Bll\obj\Debug\net8.0\refint\WebPortal.Bll.dll
+C:\Users\Acer\source\repos\WebPortal.Bll\obj\Debug\net8.0\WebPortal.Bll.pdb
+C:\Users\Acer\source\repos\WebPortal.Bll\obj\Debug\net8.0\ref\WebPortal.Bll.dll
