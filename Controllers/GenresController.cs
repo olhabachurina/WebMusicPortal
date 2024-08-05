@@ -67,30 +67,39 @@ namespace WebMusicPortal.Controllers
         {
             if (id != genreDto.GenreId)
             {
-                return BadRequest();
+                return BadRequest("Genre ID mismatch.");
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                try
-                {
-                    await _genreService.UpdateGenreAsync(genreDto);
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!await GenreExists(genreDto.GenreId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                return BadRequest(ModelState);
+            }
+
+            var existingGenre = await _genreService.GetGenreByIdAsync(id);
+            if (existingGenre == null)
+            {
+                return NotFound("Genre not found.");
+            }
+
+            existingGenre.Name = genreDto.Name;
+
+            try
+            {
+                await _genreService.UpdateGenreAsync(existingGenre);
                 _logger.LogInformation("Genre updated successfully.");
                 return NoContent();
             }
-            return BadRequest(ModelState);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!await GenreExists(genreDto.GenreId))
+                {
+                    return NotFound("Genre not found.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
         }
 
         [HttpDelete("{id}")]

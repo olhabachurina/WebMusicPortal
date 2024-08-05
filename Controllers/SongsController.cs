@@ -52,7 +52,16 @@ namespace WebMusicPortal.Controllers
         public async Task<IActionResult> GetAllSongs()
         {
             var songs = await _songService.GetAllSongsAsync();
-            var songDTOs = songs.Select(song => _mapper.Map<SongDTO>(song)).ToList();
+            var songDTOs = songs.Select(song =>
+            {
+                var songDTO = _mapper.Map<SongDTO>(song);
+                var user = _userService.GetUserByIdAsync(song.UserId).Result;
+                if (user != null)
+                {
+                    songDTO.UserName = user.UserName;
+                }
+                return songDTO;
+            }).ToList();
             return Ok(songDTOs);
         }
 
@@ -73,10 +82,18 @@ namespace WebMusicPortal.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateSong([FromForm] SongDTO songDTO)
         {
+            // Проверяем пользователя
             var userName = User.Identity?.Name;
             var user = await GetUserByNameAsync(userName);
             if (user == null) return BadRequest("User is not authenticated");
 
+            // Проверяем размер файлов
+            if (songDTO.MusicFile.Length > 100_000_000 || songDTO.VideoFile.Length > 100_000_000)
+            {
+                return BadRequest("One or more files exceed the size limit of 100 MB.");
+            }
+
+            // Сохраняем файлы
             songDTO.MusicFilePath = await SaveFileAsync(songDTO.MusicFile, "music");
             songDTO.VideoFilePath = await SaveFileAsync(songDTO.VideoFile, "videos");
             songDTO.VideoUrl = Url.Content($"~/{songDTO.VideoFilePath}");
@@ -112,10 +129,18 @@ namespace WebMusicPortal.Controllers
 
             if (songDTO.MusicFile != null)
             {
+                if (songDTO.MusicFile.Length > 100_000_000)
+                {
+                    return BadRequest("Music file exceeds the size limit of 100 MB.");
+                }
                 songDTO.MusicFilePath = await SaveFileAsync(songDTO.MusicFile, "music");
             }
             if (songDTO.VideoFile != null)
             {
+                if (songDTO.VideoFile.Length > 100_000_000)
+                {
+                    return BadRequest("Video file exceeds the size limit of 100 MB.");
+                }
                 songDTO.VideoFilePath = await SaveFileAsync(songDTO.VideoFile, "videos");
                 songDTO.VideoUrl = Url.Content($"~/{songDTO.VideoFilePath}");
             }

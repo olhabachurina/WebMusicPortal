@@ -7,9 +7,13 @@ using WebPortal.Bll.Services;
 using WebPortal.Dll;
 using WebPortal.Dll.Interfaces;
 using WebPortal.Dll.Repositories;
+using Microsoft.AspNetCore.Http.Features;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 104857600; // Устанавливаем лимит на 100 MB
+});
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Настройка DbContext с использованием строки подключения
@@ -46,7 +50,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseStaticFiles();
 app.MapControllers();
 
 app.Run();

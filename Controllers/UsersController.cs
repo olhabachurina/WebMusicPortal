@@ -64,19 +64,17 @@ namespace WebMusicPortal.Controllers
                 return BadRequest("User ID mismatch.");
             }
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             var user = await _userService.GetUserByIdAsync(id);
             if (user == null)
             {
                 return NotFound();
             }
 
+            // Логика обновления пользователя
             await _userService.UpdateUserAsync(userDto);
-            return NoContent();
+
+            // Возвращаем обновленные данные пользователя или другое подтверждение в формате JSON
+            return Ok(new { message = "User updated successfully", user = userDto });
         }
 
         [HttpDelete("{id}")]
